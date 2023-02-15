@@ -80,7 +80,7 @@ const convertToMarkdown = (parsedContent: Array<TItem>) => {
   let isNew = false;
 
   parsedContent.forEach(item => {
-    if(item.isNew !== isNew){
+    if (item.isNew !== isNew) {
       // Now the new items
       exportString += '# Tarefas novas:\n---\n';;
       isNew = true;
@@ -182,7 +182,7 @@ const NewItemForm = ({ addItem }: { addItem: Function }) => {
       <label htmlFor='title' className="item-new-title">Title<input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} /></label>
       <label htmlFor='description' className="item-new-description">Description<input type="text" id="description" value={description} onChange={(e) => setDescription(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleAddNewItem()} /></label>
       {
-        (title.length > 0 && description.length > 0) && 
+        (title.length > 0 && description.length > 0) &&
         <button type="button" onClick={handleAddNewItem}>Add</button>
       }
     </div>
@@ -254,7 +254,7 @@ function App() {
       setParsedContent(newParsedContent)
     }
   }
-  
+
   const removeItem = (itemToRemove: TItem) => {
     if (parsedContent) {
       const newParsedContent = [...parsedContent]
@@ -269,7 +269,10 @@ function App() {
       {
         !parsedContent ?
           <>
-            <p>Insert Markup below and click import or hit enter</p>
+            <p>
+              Copy the last Weekly Recap description from Trello (change to Markup View!) and insert it below.<br />
+              Then click Import to parse the content.
+            </p>
             <form className="form-input" onSubmit={handelParseInput}>
               <label htmlFor="input-box"></label>
               <textarea className="textarea-input" name="input-box" id="input-box" rows={20} cols={60} value={rawContent} onChange={(e) => setRawContent(e.target.value)} />
@@ -281,7 +284,12 @@ function App() {
           </>
           :
           <>
-            <p>Edit Elements below, when ready press Export to copy content to clipboard</p>
+            <p>
+              Edit Elements below, when ready press Export.
+              <br />
+              Then copy content to clipboard and insert it into the new Weekly
+              Recap description.
+            </p>
             <p>{`${parsedContent.length} items have been found.`}</p>
             <ul className="content-container">
               {parsedContent.map(item => <Item key={item.id} item={item} updateItem={updateItem} removeItem={removeItem} />)}
