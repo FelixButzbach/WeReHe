@@ -1,6 +1,7 @@
 # Weekly Recap Helper -> WeReHe
 
-This project will is meant to practice prototyping and to play around with remix, typescript, tailwind, Prisma and maybe even testing and fly.io
+This project was meant to practice prototyping and to play around with remix, typescript, tailwind, Prisma and maybe even testing and fly.io
+In the end, it was created with Vite :D
 
 ## Idea:
 1. Copy the content of the last Trello weekly recap card description (markup) and insert it into the werehe tool.
