@@ -24,5 +24,6 @@ This project will is meant to practice prototyping and to play around with remix
 - 14.02.23, 23:30 - 00:15: Implemented the export function
 - 15.02.23, 12:15 - 13:00: Implemented the add new child function
 - 15.02.23, 21:00 - 23:15: Added removal of newly added child and enter listener, added addItem functionality, added removeItem functionality
-- Next: Deploy to stackblitz? Or try remix fly or however it is called
+- 15.02.23, 23:30 - 00:15: Created a github repo and forked it on Stackblitz
+- Next: Add 'Mark Done' function
 
