@@ -76,10 +76,12 @@ button {
   border-radius: 0.5em;
 }
 
-.inline-button.delete{
-  color: #880000;
+.inline-button.delete {
+  color: #b60000;
 }
-.inline-button.add{
+
+.inline-button.add,
+.inline-button.done {
   color: green;
 }
 

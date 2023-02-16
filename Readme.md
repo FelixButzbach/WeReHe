@@ -26,5 +26,5 @@ In the end, it was created with Vite :D
 - 15.02.23, 12:15 - 13:00: Implemented the add new child function
 - 15.02.23, 21:00 - 23:15: Added removal of newly added child and enter listener, added addItem functionality, added removeItem functionality
 - 15.02.23, 23:30 - 00:15: Created a github repo and forked it on Stackblitz
-- Next: Add 'Mark Done' function
-
+- 16.02.23, 09:20 - 10:15: Added the 'markDone' function
+- Next: clean the code (create a helper module and separate files for each component)

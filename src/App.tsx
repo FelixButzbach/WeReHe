@@ -33,14 +33,10 @@ const parseContent = (rawContent: string) => {
       // Check if it is a header
       if (markDownContent[index - 1] && markDownContent[index - 1].type === "heading_open") {
         // Its a header
-        // Currently not used
-        // console.log('found a header:', markDownContent[index-1].tag, element.content);
+        // We currently dont do anything with the header, just ignore it
       } else {
-        // Its some (real) content
-        // console.log('found some content', element.content);
-        // console.log('comments', element.comments);
+        // Its some (real) content        
         // Loop over the comments to get all content
-        // @TODO extract more information from the comments?
         const newItem: TItem = {
           id: String(currentIndex),
           title: "",
@@ -58,11 +54,16 @@ const parseContent = (rawContent: string) => {
             }
           }
         });
-        newParsedContent.push({
-          ...newItem,
-          comments: newComments
-        })
-        currentIndex++;
+
+        // Only add this item if its status is not done
+        // This probably should be done before parsing all comments
+        if (newItem.title.indexOf('[DONE]') === -1) {
+          newParsedContent.push({
+            ...newItem,
+            comments: newComments
+          })
+          currentIndex++;
+        }
       }
     }
   })
@@ -115,20 +116,38 @@ const Item = ({ item, updateItem, removeItem }: { item: TItem, updateItem: Funct
     const newComments = [...item.comments];
     newComments.push({ content: createDateTag() + ' ' + newCommentContent, isNew: true })
     setNewCommentContent('');
-    updateItem({ ...item, comments: newComments })
+    updateItem({
+      ...item,
+      title: `[UPDATED] ${item.title}`,
+      comments: newComments
+    })
   }
 
   const handleRemoveComment = () => {
-    updateItem({ ...item, comments: item.comments.filter(comment => !comment.isNew) })
+    updateItem({
+      ...item,
+      title: item.title.replace(/\[UPDATED\]|\[DONE\] ?/, ''),
+      comments: item.comments.filter(comment => !comment.isNew)
+    })
   }
 
   const handleRemoveItem = () => {
     removeItem(item)
   }
 
+  const handleMarkItemDone = () => {
+    // Toggle the UPDATED and DONE tag
+    // Items with the DONE tag will be excluded next time
+    const newTag = item.title.indexOf('[DONE]') > -1 ? '[UPDATED]' : '[DONE]'
+    updateItem({
+      ...item,
+      title: item.title.replace(/\[UPDATED\]|\[DONE\]/, newTag)
+    })
+  }
+
   return (
     <li key={item.id}>
-      <h2 className="item-title">{item.title}{item.isNew && <button type="button" className="inline-button delete" onClick={handleRemoveItem}>Delete</button>}</h2>
+      <h2 className="item-title">{item.title}{item.isNew && <button type="button" className="inline-button delete" onClick={handleRemoveItem}>DELETE</button>}</h2>
       {
         <ol className="item-container">
           {item.comments.map((comment, index) => {
@@ -136,7 +155,12 @@ const Item = ({ item, updateItem, removeItem }: { item: TItem, updateItem: Funct
               {
                 index === 0 ?
                   <>{comment.content}</> :
-                  <>{`${index}: ${comment.content}`}{comment.isNew && <button type="button" className="inline-button delete" onClick={handleRemoveComment}>Delete</button>}</>
+                  <>{`${index}: ${comment.content}`}{comment.isNew && (
+                    <>
+                      <button type="button" className="inline-button delete" onClick={handleRemoveComment}>DELETE</button>
+                      <button type="button" className="inline-button done" onClick={handleMarkItemDone}>DONE</button>
+                    </>
+                  )}</>
               }
             </li>
           })}
@@ -238,7 +262,7 @@ function App() {
     if (parsedContent) {
       const newParsedContent = parsedContent.map(item => {
         if (item.id === updatedItem.id) {
-          return { ...updatedItem, title: `[UPDATED] ${updatedItem.title}` };
+          return { ...updatedItem };
         }
         return { ...item }
       })
