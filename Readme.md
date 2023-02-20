@@ -27,4 +27,6 @@ In the end, it was created with Vite :D
 - 15.02.23, 21:00 - 23:15: Added removal of newly added child and enter listener, added addItem functionality, added removeItem functionality
 - 15.02.23, 23:30 - 00:15: Created a github repo and forked it on Stackblitz
 - 16.02.23, 09:20 - 10:15: Added the 'markDone' function
+- 20.02.23, 19:45 - 20:00: Added repo to AWS Amplify and deployed it
+- Next: Apply some better styling
 - Next: clean the code (create a helper module and separate files for each component)
