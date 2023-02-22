@@ -15,6 +15,14 @@ In the end, it was created with Vite :D
   - Add the current date to all cards that have been edited or added
 6. Export with markup styling
 
+## TODO:
+- Clean the code (create a helper module and separate files for each component)
+- Add option to mark a new task directly as DONE once it was inserted
+- Add a favicon, so that it is easier to find
+- Highlight the currently active card (so that it is easier to see via video calls) (maybe via hover animation?!)
+- Add the link to the corresponding Trello card of each task somewhere.
+- Add the 'puff' animation when marking a task DONE
+- Create some kind of shared session, so that the others can join and see the same content and add or edit it
 
 ## Log:
 - 06.02.23, 20:15: Started
@@ -28,4 +36,4 @@ In the end, it was created with Vite :D
 - 15.02.23, 23:30 - 00:15: Created a github repo and forked it on Stackblitz
 - 16.02.23, 09:20 - 10:15: Added the 'markDone' function
 - 20.02.23, 19:45 - 20:00: Added repo to AWS Amplify and deployed it
-- Next: clean the code (create a helper module and separate files for each component)
+- 22.02.23, 16:10 - 16:20: Created the werehe.antena1.com.br domain and added it to the amplify project. And added an example md file
