@@ -54,6 +54,7 @@ button {
 }
 
 .content-container li {
+  position: relative; /* for the z index */
   list-style: none;
   margin-bottom: 10px;
   text-align: left;
@@ -61,6 +62,13 @@ button {
   border-radius: 10px;
   padding: 0 10px;
   background-color: #242424;
+  scale: 1;
+}
+
+.content-container li:hover {
+  scale: 1.05;
+  background: #4d4d4d;
+  z-index: 1;
 }
 
 .item-container {
@@ -73,6 +81,12 @@ button {
   text-align: left;
   border: none;
   background-color: #3b3b3b;
+  scale: 1;
+}
+
+.item-container li:hover, .item-container li:active {
+  scale: 1.02;
+  background: black;
 }
 
 .inline-button {

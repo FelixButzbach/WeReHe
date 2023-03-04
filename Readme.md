@@ -18,7 +18,6 @@ In the end, it was created with Vite :D
 ## TODO:
 - Clean the code (create a helper module and separate files for each component)
 - Add a favicon, so that it is easier to find
-- Highlight the currently active card (so that it is easier to see via video calls) (maybe via hover animation?!)
 - Add the link to the corresponding Trello card of each task somewhere.
 - Add the 'puff' animation when marking a task DONE
 - Create some kind of shared session, so that the others can join and see the same content and add or edit it
@@ -37,3 +36,4 @@ In the end, it was created with Vite :D
 - 20.02.23, 19:45 - 20:00: Added repo to AWS Amplify and deployed it
 - 22.02.23, 16:10 - 16:20: Created the werehe.antena1.com.br domain and added it to the amplify project. And added an example md file
 - 04.03.23, 12:55 - 13:05: Added option to mark new item as DONE
+- 04.03.23, 13:10 - 13:25: Highlight items via mouse hover
