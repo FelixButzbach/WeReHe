@@ -136,18 +136,41 @@ const Item = ({ item, updateItem, removeItem }: { item: TItem, updateItem: Funct
   }
 
   const handleMarkItemDone = () => {
-    // Toggle the UPDATED and DONE tag
+    // Toggle the UPDATED and DONE tag or add (and remove) the DONE tag to new items
     // Items with the DONE tag will be excluded next time
-    const newTag = item.title.indexOf('[DONE]') > -1 ? '[UPDATED]' : '[DONE]'
-    updateItem({
-      ...item,
-      title: item.title.replace(/\[UPDATED\]|\[DONE\]/, newTag)
-    })
+    if (item.isNew) {
+      // Add or remove the DONE tag
+      if (item.title.indexOf('[DONE]') > -1) {
+        // Remove the DONE tag
+        updateItem({
+          ...item,
+          title: item.title.replace(/\[DONE\]/, '')
+        })
+      } else {
+        // Add the DONE tag
+        updateItem({
+          ...item,
+          title: `[DONE] ${item.title}`
+        })
+      }
+    } else {
+      // Toggle UPDATED and DONE tags
+      const newTag = item.title.indexOf('[DONE]') > -1 ? '[UPDATED]' : '[DONE]'
+      updateItem({
+        ...item,
+        title: item.title.replace(/\[UPDATED\]|\[DONE\]/, newTag)
+      })
+    }
   }
 
   return (
     <li key={item.id}>
-      <h2 className="item-title">{item.title}{item.isNew && <button type="button" className="inline-button delete" onClick={handleRemoveItem}>DELETE</button>}</h2>
+      <h2 className="item-title">{item.title}{item.isNew && (
+        <>
+          <button type="button" className="inline-button delete" onClick={handleRemoveItem}>DELETE</button>
+          <button type="button" className="inline-button done" onClick={handleMarkItemDone}>DONE</button>
+        </>
+      )}</h2>
       {
         <ol className="item-container">
           {item.comments.map((comment, index) => {
