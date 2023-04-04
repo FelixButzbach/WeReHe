@@ -16,11 +16,11 @@ In the end, it was created with Vite :D
 6. Export with markup styling
 
 ## TODO:
-- Clean the code (create a helper module and separate files for each component)
 - Add a favicon, so that it is easier to find
 - Add the link to the corresponding Trello card of each task somewhere.
 - Add the 'puff' animation when marking a task DONE
 - Create some kind of shared session, so that the others can join and see the same content and add or edit it
+- Save the current content to localStorage so that it can be recovered when reloading the page
 
 ## Log:
 - 06.02.23, 20:15: Started
@@ -37,3 +37,4 @@ In the end, it was created with Vite :D
 - 22.02.23, 16:10 - 16:20: Created the werehe.antena1.com.br domain and added it to the amplify project. And added an example md file
 - 04.03.23, 12:55 - 13:05: Added option to mark new item as DONE
 - 04.03.23, 13:10 - 13:25: Highlight items via mouse hover
+- 04.03.23, 12:00 - 12:35: Cleaned the code
