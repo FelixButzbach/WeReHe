@@ -16,7 +16,6 @@ In the end, it was created with Vite :D
 6. Export with markup styling
 
 ## TODO:
-- Add a favicon, so that it is easier to find
 - Add the link to the corresponding Trello card of each task somewhere.
 - Add the 'puff' animation when marking a task DONE
 - Create some kind of shared session, so that the others can join and see the same content and add or edit it
@@ -38,3 +37,4 @@ In the end, it was created with Vite :D
 - 04.03.23, 12:55 - 13:05: Added option to mark new item as DONE
 - 04.03.23, 13:10 - 13:25: Highlight items via mouse hover
 - 04.03.23, 12:00 - 12:35: Cleaned the code
+- 04.03.23, 12:35 - 12:45: Added an (ugly) favicon
